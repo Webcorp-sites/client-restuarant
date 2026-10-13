@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RESERVE — MARROW</title><script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>*{font-family:'DM Sans',sans-serif}.display{font-family:'Instrument Serif',serif}</style></head>
+<body class="bg-[#151A18] text-[#F6F1EB]">
+<nav class="border-b border-white/10 px-6 md:px-10 py-6 flex justify-between items-center max-w-[1400px] mx-auto">
+<a href="resto_index.html" class="display text-2xl">MARROW</a>
+<div class="flex gap-6 text-[11px] font-bold tracking-widest"><a href="resto_index.html" class="opacity-50">HOME</a><a href="resto_menu.html" class="opacity-50">MENU</a><a href="resto_reserve.html" class="border-b border-white">RESERVE</a></div>
+<a href="resto_menu.html" class="bg-[#F6F1EB] text-black px-5 py-2.5 rounded-full text-[11px] font-bold">ORDER — <span id="nav-count">0</span></a>
+</nav>
+<section class="max-w-[1400px] mx-auto px-6 md:px-10 mt-10 grid md:grid-cols-2 gap-10">
+<div><h2 class="display text-6xl md:text-7xl leading-[0.9]">Come early.<br>Stay late.</h2><div class="grid grid-cols-2 gap-4 mt-10"><div class="rounded-[20px] overflow-hidden aspect-[4/5]"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" class="w-full h-full object-cover"></div><div class="rounded-[20px] overflow-hidden aspect-[4/5]"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" class="w-full h-full object-cover"></div></div></div>
+<div class="bg-[#F6F1EB] text-[#151A18] rounded-[32px] p-8 md:p-10">
+<h3 class="display text-4xl">Reserve a table</h3><p class="text-[13px] opacity-60 mt-2">WhatsApp booking — no deposit.</p>
+<input id="name" placeholder="Name" class="mt-8 w-full bg-white border border-black/10 rounded-full px-6 py-4 text-[14px] outline-none">
+<div class="grid grid-cols-2 gap-3 mt-3"><input id="date" type="date" class="bg-white border border-black/10 rounded-full px-6 py-4 text-[13px]"><select id="guests" class="bg-white border border-black/10 rounded-full px-6 py-4 text-[13px]"><option>2 guests</option><option>4 guests</option><option>6 guests</option><option>8+ guests</option></select></div>
+<textarea id="note" placeholder="Occasion?" class="mt-3 w-full bg-white border border-black/10 rounded-[24px] px-6 py-4 h-24 text-[14px] outline-none"></textarea>
+<button onclick="reserve()" class="mt-6 w-full bg-[#151A18] text-white rounded-full py-5 font-bold text-[11px] tracking-widest">SEND RESERVATION ON WHATSAPP</button>
+<div class="mt-8 pt-8 border-t border-black/10 text-[12px] leading-6 opacity-70"><p>📍 12 Vaal Rd, Midvaal<br>🕐 12pm — 10pm daily<br>🍷 Natural wine, fire menu</p></div>
+</div>
+</section>
+<script>
+function reserve(){let n=document.getElementById('name').value||'Guest'; let d=document.getElementById('date').value||'TBD'; let g=document.getElementById('guests').value; let note=document.getElementById('note').value; let txt=`MARROW RESERVE:%0AName: ${n}%0ADate: ${d}%0A${g}%0ANote: ${note}`; window.open('https://wa.me/27600000000?text='+txt,'_blank')}
+document.getElementById('nav-count').innerText=JSON.parse(localStorage.getItem('marrow_order')||'[]').length
+</script>
+</body></html>
